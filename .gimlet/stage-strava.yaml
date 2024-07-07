@@ -1,0 +1,22 @@
+app: strava
+env: stage
+namespace: default
+chart:
+  name: https://github.com/gimlet-io/onechart.git?branch=simplified-schema&path=/charts/onechart/
+values:
+  containerPort: 8501
+  gitRepository: lalyos/streamlit-demo
+  gitSha: '{{ .SHA }}'
+  image:
+    dockerfile: ""
+    registry: ""
+    repository: ttl.sh/streamlit
+    strategy: static
+    tag: latest
+  imagePullSecrets:
+    - '{{ .APP }}--pullsecret'
+  ingress:
+    host: strava.k3z.eu
+    tlsEnabled: true
+  resources:
+    ignoreLimits: true
