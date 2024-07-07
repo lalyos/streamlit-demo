@@ -1,6 +1,9 @@
 import streamlit as st
+import folium
 
 st.title("🎈 My new app")
 st.write(
-    "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
+    "Let see a map ..."
 )
+
+folium.Map(location=(47, 18),zoom_start=12)
